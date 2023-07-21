@@ -31,6 +31,7 @@ import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
 
+import com.android.systemui.shared.system.ActivityManagerWrapper;
 import com.axb.oneclickclear.R;
 import com.axb.oneclickclear.utils.PermissionsUtils;
 import com.axb.oneclickclear.utils.SystemInfoUtils;
@@ -203,7 +204,7 @@ public class ClearCacheFragment extends Fragment {
                             public void onClick(View v) {
                                 //Not work, due to lacking android.permission.DELETE_CACHE_FILES
                                 //DELETE_CACHE_FILES which allows an application to delete cache files is Not for use by third-party applications.
-                                //ActivityManagerWrapper.getInstance().removeAllRecentTasks();
+                                ActivityManagerWrapper.getInstance().removeAllRecentTasks();
                                 Toast.makeText(getActivity(), "很抱歉，只有系统级别的应用才能清理缓存", Toast.LENGTH_LONG).show();
                                 try {
                                     //Reflection
